@@ -6,5 +6,6 @@ export class Upgrade {
         this.price = data.price
         this.quantity = data.quantity
         this.multiplier = data.multiplier
+        this.quantity = data.quantity || 0
     }
 }

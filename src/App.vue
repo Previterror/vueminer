@@ -1,38 +1,46 @@
 <script setup>
 import { computed, ref } from 'vue'
 import { AppState } from './AppState'
-import { mineService } from './services/MineService.js';
-
+import { mineService } from './services/MineService.js'
+import "./assets/scss/main.scss"
+import Upgrades from './components/Upgrades.vue';
 
 const appState = computed(() => AppState)
 
-let gold = computed(()=>AppState.gold)
+let gold = computed(() => AppState.gold)
 
-function mineGold(){
+function mineGold() {
   mineService.mineGold()
 }
 
-function buyUpgrade(upgrade){
-  mineService.buyUpgrade(upgrade)
-}
 
 </script>
 
 <template>
-  
-  <main class="container-fluid bg-dark text-light">
-    <section class="row justify-content-center">
-      <section class="col-6">
-    <h1>Gold Mined: {{ gold }}<i class="mdi mdi-gold"></i></h1>
-    <button class="btn btn-success" @click="mineGold()"><i class="mdi mdi-gold clicker"></i></button>
-  </section>
-  </section>
-  <section class="row">
-    <section class="col-10">
 
-      <button class="btn btn-primary" @click="buyUpgrade('10')">Buy <i class="mdi mdi-pickaxe"></i></button>
+  <main class="container-fluid bg-dark text-light">
+    <section class="row justify-content-center text-center">
+      <section class="col-4">
+        <h1>Gold Mined: {{ gold }}<i class="mdi mdi-gold"></i></h1>
+        <button class="btn btn-success" @click="mineGold()"><i class="mdi mdi-gold clicker"></i></button>
+      </section>
     </section>
-  </section>
+    <section class="row justify-content-around text-center">
+      <section class="fs-3">Upgrades</section>
+
+
+      <Upgrades />
+
+      <!-- <section class="col m-4 fs-5" v-for="upgrade in upgrades" :key="upgrade.name">
+        <p>Price:</p>
+        <p><i class="mdi mdi-gold"></i>{{ upgrade.price }}</p>
+        <button class="btn btn-primary fs-3" @click="buyUpgrade(`${upgrade.id}`)">Buy <i
+            :class="`mdi mdi-${upgrade.name}`"></i></button>
+        <p class="fs-6">Quantity: {{ upgrade.quantity }}</p>
+      </section> -->
+
+
+    </section>
   </main>
 
 </template>
@@ -40,12 +48,11 @@ function buyUpgrade(upgrade){
 <style lang="scss">
 @import "./assets/scss/main.scss";
 
-:root{
+:root {
   --main-height: calc(100vh - 32px - 64px);
 }
 
-.clicker{
+.clicker {
   font-size: 300px;
 }
-
 </style>
