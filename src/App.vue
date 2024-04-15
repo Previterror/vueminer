@@ -4,19 +4,17 @@ import { AppState } from './AppState'
 import Navbar from './components/Navbar.vue'
 
 const appState = computed(() => AppState)
+let counter = 0
+
 
 </script>
 
 <template>
-  <header>
-    <Navbar />
-  </header>
+  
   <main>
-    <router-view />
+    <h1>Clicks: {{ counter }}</h1>
   </main>
-   <footer class="bg-dark text-light">
-    Made with 💖 by CodeWorks
-  </footer>
+
 </template>
 
 <style lang="scss">
