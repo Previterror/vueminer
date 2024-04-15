@@ -59,6 +59,6 @@ function mineGold() {
 }
 
 .clicker {
-  font-size: 300px;
+  font-size: 15dvh;
 }
 </style>
