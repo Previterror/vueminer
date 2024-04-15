@@ -5,9 +5,11 @@ import { mineService } from './services/MineService.js'
 import "./assets/scss/main.scss"
 import Upgrades from './components/Upgrades.vue';
 
-const appState = computed(() => AppState)
+
 
 let gold = computed(() => AppState.gold)
+let onClick = AppState.onClick
+let onInterval = AppState.onInterval
 
 function mineGold() {
   mineService.mineGold()
@@ -22,7 +24,11 @@ function mineGold() {
     <section class="row justify-content-center text-center">
       <section class="col-4">
         <h1>Gold Mined: {{ gold }}<i class="mdi mdi-gold"></i></h1>
-        <button class="btn btn-success" @click="mineGold()"><i class="mdi mdi-gold clicker"></i></button>
+        <div class="row">
+          <h6>Gold Mined per Click: {{ onClick }}</h6>
+          <h6>Gold Mined Automatically: {{ onInterval }} </h6>
+          <button class="btn btn-success" @click="mineGold()"><i class="mdi mdi-gold clicker"></i></button>
+        </div>
       </section>
     </section>
     <section class="row justify-content-around text-center">
