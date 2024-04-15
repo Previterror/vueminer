@@ -12,13 +12,27 @@ function mineGold(){
   mineService.mineGold()
 }
 
+function buyUpgrade(upgrade){
+  mineService.buyUpgrade(upgrade)
+}
+
 </script>
 
 <template>
   
-  <main>
+  <main class="container-fluid bg-dark text-light">
+    <section class="row justify-content-center">
+      <section class="col-6">
     <h1>Gold Mined: {{ gold }}<i class="mdi mdi-gold"></i></h1>
     <button class="btn btn-success" @click="mineGold()"><i class="mdi mdi-gold clicker"></i></button>
+  </section>
+  </section>
+  <section class="row">
+    <section class="col-10">
+
+      <button class="btn btn-primary" @click="buyUpgrade('10')">Buy <i class="mdi mdi-pickaxe"></i></button>
+    </section>
+  </section>
   </main>
 
 </template>

@@ -10,9 +10,14 @@ export const AppState = reactive({
 
   gold: 0,
 
+  onClick: 1,
+
+  onInterval: 0,
+
   /**@type {Upgrade[]}*/
-  Upgrades: [
+  upgrades: [
     {
+      id: 10,
       name: 'pickaxe',
       automatic: false,
       price: 1,
@@ -20,6 +25,7 @@ export const AppState = reactive({
       multiplier: 1,
     },
     {
+      id: 11,
       name: 'hammer',
       automatic: false,
       price: 2,
@@ -27,6 +33,7 @@ export const AppState = reactive({
       multiplier: 5,
     },
     {
+      id: 20,
       name: 'truck',
       automatic: true,
       price: 6,
@@ -34,6 +41,7 @@ export const AppState = reactive({
       multiplier: 10,
     },
     {
+      id: 21,
       name: 'fasttruck',
       automatic: true,
       price: 12,
